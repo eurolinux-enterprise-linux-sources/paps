@@ -1,6 +1,6 @@
 Name:		paps
 Version:	0.6.8
-Release:	13%{?dist}.2
+Release:	13%{?dist}.3
 
 License:	LGPLv2+
 URL:		http://paps.sourceforge.net/
@@ -24,6 +24,7 @@ Patch52:	paps-dsc-compliant.patch
 Patch53:	paps-autoconf262.patch
 Patch54:	paps-fix-cpi.patch
 Patch55:	paps-fix-loop-in-split.patch
+Patch56:	paps-fix-paper-size-truncate.patch
 
 Summary:	Plain Text to PostScript converter
 Group:		Applications/Publishing
@@ -62,6 +63,7 @@ applications using paps API.
 %patch53 -p1 -b .autoconf262
 %patch54 -p1 -b .fixcpi
 %patch55 -p1 -b .loop-in-split
+%patch56 -p1 -b .truncate
 libtoolize -f -c
 autoreconf
 
@@ -109,6 +111,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libpaps.so
 
 %changelog
+* Thu Jan  7 2016 Akira TAGOH <tagoh@redhat.com> - 0.6.8-13.3
+- Fix the paper size truncated wrongly by integer cast. (#1214939)
+
 * Thu Dec  9 2010 Akira TAGOH <tagoh@redhat.com> - 0.6.8-13.2
 - add Requires: %%{name}-libs = %%{version}-%%{release} to paps.
 
