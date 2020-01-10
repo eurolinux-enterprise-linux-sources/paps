@@ -1,6 +1,6 @@
 Name:		paps
 Version:	0.6.8
-Release:	13%{?dist}.3
+Release:	13%{?dist}
 
 License:	LGPLv2+
 URL:		http://paps.sourceforge.net/
@@ -23,12 +23,9 @@ Patch51:	paps-cpilpi.patch
 Patch52:	paps-dsc-compliant.patch
 Patch53:	paps-autoconf262.patch
 Patch54:	paps-fix-cpi.patch
-Patch55:	paps-fix-loop-in-split.patch
-Patch56:	paps-fix-paper-size-truncate.patch
 
 Summary:	Plain Text to PostScript converter
 Group:		Applications/Publishing
-Requires:	%{name}-libs = %{version}-%{release}
 %description
 paps is a PostScript converter from plain text file using Pango.
 
@@ -62,8 +59,6 @@ applications using paps API.
 %patch52 -p1 -b .dsc
 %patch53 -p1 -b .autoconf262
 %patch54 -p1 -b .fixcpi
-%patch55 -p1 -b .loop-in-split
-%patch56 -p1 -b .truncate
 libtoolize -f -c
 autoreconf
 
@@ -111,15 +106,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libpaps.so
 
 %changelog
-* Thu Jan  7 2016 Akira TAGOH <tagoh@redhat.com> - 0.6.8-13.3
-- Fix the paper size truncated wrongly by integer cast. (#1214939)
-
-* Thu Dec  9 2010 Akira TAGOH <tagoh@redhat.com> - 0.6.8-13.2
-- add Requires: %%{name}-libs = %%{version}-%%{release} to paps.
-
-* Thu Dec  9 2010 Akira TAGOH <tagoh@redhat.com> - 0.6.8-13.1
-- Fix the infinite loop in splitting paragraphs (#618271)
-
 * Fri Mar 12 2010 Akira TAGOH <tagoh@redhat.com> - 0.6.8-13
 - Fix the directory's group ownership. (#572733)
 
