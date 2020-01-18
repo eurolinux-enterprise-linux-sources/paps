@@ -1,6 +1,6 @@
 Name:           paps
 Version:        0.6.8
-Release:        28%{?dist}.1
+Release:        28%{?dist}
 
 License:        LGPLv2+
 URL:            http://paps.sourceforge.net/
@@ -33,10 +33,6 @@ Patch55:        paps-fix-loop-in-split.patch
 Patch56:        paps-fix-tab-width.patch
 Patch57:        paps-fix-non-weak-symbol.patch
 Patch58:        paps-correct-fsf-address.patch
-## rhbz#1196997
-Patch59:	paps-a3.patch
-## rhbz#1222777
-Patch60:	paps-fix-paper-size-truncate.patch
 
 Summary:        Plain Text to PostScript converter
 Group:          Applications/Publishing
@@ -79,8 +75,6 @@ applications using paps API.
 %patch56 -p1 -b .tab
 %patch57 -p1 -b .weak-symbol
 %patch58 -p1 -b .fsf
-%patch59 -p1 -b .a3
-%patch60 -p1 -b .paper-size-truncate
 libtoolize -f -c
 autoreconf -f -i
 
@@ -125,14 +119,6 @@ install -p -m0644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/cups
 %{_libdir}/libpaps.so
 
 %changelog
-* Tue Jun 23 2015 Scientific Linux Auto Patch Process <SCIENTIFIC-LINUX-DEVEL@LISTSERV.FNAL.GOV>
-- Eliminated rpmbuild "bogus date" error due to inconsistent weekday,
-  by assuming the date is correct and changing the weekday.
-
-* Tue May 19 2015 Akira TAGOH <tagoh@redhat.com> - 0.6.8-28.1
-- Add A3 paper size option. (#1196997)
-- Fix wrong paper size due to the integer cast (#1222777)
-
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 0.6.8-28
 - Mass rebuild 2014-01-24
 
