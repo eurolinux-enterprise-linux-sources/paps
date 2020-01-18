@@ -1,6 +1,6 @@
 Name:           paps
 Version:        0.6.8
-Release:        28%{?dist}
+Release:        26%{?dist}
 
 License:        LGPLv2+
 URL:            http://paps.sourceforge.net/
@@ -119,12 +119,6 @@ install -p -m0644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/cups
 %{_libdir}/libpaps.so
 
 %changelog
-* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 0.6.8-28
-- Mass rebuild 2014-01-24
-
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 0.6.8-27
-- Mass rebuild 2013-12-27
-
 * Wed Jul 31 2013 Akira TAGOH <tagoh@redhat.com> - 0.6.8-26
 - Fix the width calculation with CPI enabled. (#990228)
 
